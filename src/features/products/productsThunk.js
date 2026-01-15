@@ -8,3 +8,13 @@ export const fetchProducts = createAsyncThunk(
     return res.data;
   }
 );
+
+export const fetchProductById = createAsyncThunk(
+  "products/fetchById",
+  async (id) => {
+    const res = await axios.get(
+      `https://fakestoreapi.com/products/${id}`
+    );
+    return res.data;
+  }
+);

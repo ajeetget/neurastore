@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchProducts } from "./productsThunk";
+import { fetchProducts, fetchProductById } from "./productsThunk";
 
 const initialState = {
   items: [],
+  selectedProduct: null,
   status: "idle",
   error: null,
 };
@@ -13,10 +14,13 @@ const productsSlice = createSlice({
   reducers: { 
     clearProducts: (state) => {
       state.items = [];
+      state.selectedProduct = null;
+      state.status = "idle";
+      state.error = null;
     },
   },
   extraReducers: (builder) => {
-    builder
+    builder     
       .addCase(fetchProducts.pending, (state) => {
         state.status = "loading";
       })
@@ -26,6 +30,19 @@ const productsSlice = createSlice({
       })
       .addCase(fetchProducts.rejected, (state, action) => {
         state.status = "failed";
+        state.error = action.error.message;
+      })
+      .addCase(fetchProductById.pending, (state) => {
+        state.status = "loading";
+        state.selectedProduct = null;
+      })
+      .addCase(fetchProductById.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.selectedProduct = action.payload;
+      })
+      .addCase(fetchProductById.rejected, (state, action) => {
+        state.status = "failed";
+        state.selectedProduct = null;
         state.error = action.error.message;
       });
   },
