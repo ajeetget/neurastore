@@ -5,6 +5,7 @@ describe("productsSlice", () => {
     const state = productsReducer(undefined, { type: "unknown" });
     expect(state).toEqual({
       items: [],
+      selectedProduct: null,
       status: "idle",
       error: null,
     });
