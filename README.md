@@ -1,18 +1,89 @@
-# React + Vite
+# NeuraStore
+A React 19-based e-commerce application with Redux Toolkit state management.  
+Users can browse products, search, filter, view product details, and manage favorites.
+**Live Demo:** [https://neurastore-gamma.vercel.app](https://neurastore-gamma.vercel.app)
+---
+## Features
+- **Product Listing Page**
+  - Responsive grid layout
+  - Search by title (debounced)
+  - Filter by category
+  - Sort by price
+- **Product Detail Page**
+  - View complete product info
+  - Add / Remove favorites
+- **Favorites Page**
+  - View favorited products
+  - Remove favorites
+- **State Management**
+  - Redux Toolkit slices, thunks, selectors
+- **Testing**
+  - Unit tests for slices and components
+  - Integration tests for search, filter, and favorites
+- **Styling**
+  - Responsive and accessible UI with styled-components
+---
+## Tech Stack
+- **React:** ^19.2.3
+- **React DOM:** ^19.2.3
+- **Redux Toolkit:** ^2.11.2
+- **React Router Dom:** ^7.12.0
+- **Styled Components:** ^6.3.5
+- **Axios:** ^1.13.2
+- **Vitest:** ^4.0.17
+- **React Testing Library:** ^16.3.1
+- **Vite:** ^7.2.4
+---
+## Folder Structure
+src/
+├─ app/
+│ └─ store.js
+├─ components/
+│ ├─ Header/
+│ │ └─ Header.jsx
+│ ├─ Footer/
+│ │ └─ Footer.jsx
+│ └─ ProductCard/
+│ └─ ProductCard.jsx
+├─ features/
+│ ├─ favorites/
+│ │ └─ favoritesSlice.js
+│ ├─ filters/
+│ │ └─ filtersSlice.js
+│ └─ products/
+│ ├─ productsSlice.js
+│ ├─ productsSelectors.js
+│ └─ productsThunk.js
+├─ hooks/
+│ └─ useDebounce.js
+├─ pages/
+│ ├─ Favorites/
+│ │ └─ Favorites.jsx
+│ ├─ ProductDetail/
+│ │ └─ ProductDetail.jsx
+│ └─ ProductList/
+│ └─ ProductList.jsx
+├─ styles/
+└─ test/
+└─ setupTests.js
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Setup Instructions
+1. **Clone the repository**
+git clone https://github.com/ajeetget/neurastore.git
+cd neurastore
 
-Currently, two official plugins are available:
+## Install dependencies
+npm install
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Run the development server
+npm run dev
 
-## React Compiler
+## Build for production
+npm run build
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Testing
+npm run test
 
-Note: This will impact Vite dev & build performances.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Deployment
+Deployed on Vercel: https://neurastore-gamma.vercel.app
+Fully functional, including favorites, search, and product details.
